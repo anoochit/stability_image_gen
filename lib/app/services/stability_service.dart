@@ -16,8 +16,6 @@ class StabilityService {
       "accept": "image/*",
     };
 
-    log(headers.toString());
-
     final fields = {
       "prompt": prompt,
       "output_format": outputFormat,
