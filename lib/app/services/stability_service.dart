@@ -30,11 +30,6 @@ class StabilityService {
     try {
       final response = await request.send();
       if (response.statusCode == 200) {
-        // final file = File("./lighthouse.webp");
-        // final sink = file.openWrite();
-        // await response.stream.pipe(sink);
-        // await sink.close();
-        print("Image saved to lighthouse.webp");
         final bytes = await response.stream.toBytes();
         return Uint8List.fromList(bytes);
       } else {
