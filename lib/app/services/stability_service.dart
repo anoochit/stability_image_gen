@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class StabilityService {
   static const String baseUrl =
@@ -27,7 +28,13 @@ class StabilityService {
     try {
       final response = await request.send();
       if (response.statusCode == 200) {
+        // get image byte
         final bytes = await response.stream.toBytes();
+
+        // save to image gallery
+        await ImageGallerySaver.saveImage(bytes,
+            name: '${DateTime.now().microsecondsSinceEpoch}.webp');
+
         return Uint8List.fromList(bytes);
       } else {
         throw ("Error: ${response.statusCode} ${response.reasonPhrase}");
