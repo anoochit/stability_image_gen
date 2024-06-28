@@ -15,7 +15,7 @@
 
 # Stability Image Gen
 
-An example generate image from text using Stable Image Core API.
+An example generate image from text using [Stable Image Core API](https://platform.stability.ai/docs/api-reference#tag/Generate/paths/~1v2beta~1stable-image~1generate~1core/post).
 
 ## Screenshots
 
